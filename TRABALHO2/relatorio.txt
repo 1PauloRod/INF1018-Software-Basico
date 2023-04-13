@@ -1,0 +1,138 @@
+/* Paulo_Rodrigues 1713170 3WB */
+/* Luan_Ferreira 1912993 3WB */
+
+
+Objetivo: Criar uma função "cria_func" que cria dinamicamente uma nova função baseada na função que é recebida como parâmetro.
+
+Funções:
+
+cria_func OK!
+libera_func OK!
+
+
+Testes:
+
+	Primeiro Teste:
+
+		- Uma função que recebe o seu parâmetro e retorna ele mesmo.
+
+		int retornaParametro(int val)
+		{
+			return val;
+		}
+
+
+		tipo de valor do parâmetro: inteiro
+		valor de origem do parâmetro: fixo
+		valor do número inteiro = 33
+
+
+		func_ptr f_retornaParametro = (func_ptr) cria_func(retornaParametro, params, 1); // retorna o número 33.
+
+		Primeiro Teste OK!
+
+
+
+	Segundo Teste:
+
+		- Função que recebe dois valores inteiros e retorna a soma.
+
+		int soma(int x, int y) 
+		{
+  			return x + y;
+  		}
+
+  		int valor = 2;
+
+  		tipo de valor do parâmetro 1: inteiro
+		valor de origem do parâmetro 1: fixo
+		valor do número inteiro do parâmetro 1: 10
+
+		tipo de valor do parâmetro 2: inteiro
+		valor de origem do parâmetro 1: IND
+		valor do número inteiro do parâmetro 1: &valor
+
+
+		func_ptr f_soma = (func_ptr) cria_func(soma, params, 2); // retorna o número 12.
+
+		Segundo Teste OK!
+
+
+	Terceiro Teste:
+
+		- Função que soma dois ponteiros inteiros com um inteiro.
+
+		int somaTudo(int a, int* b, int* c)
+		{
+			return a + *b + *c; 
+		}
+
+		int valor1 = 10;
+		int fixo = 5;
+		int valor2 = 70;
+
+		tipo de valor do parâmetro 1: inteiro
+		valor de origem do parâmetro 1: IND 
+		valor do número inteiro do parâmetro 1: &valor1
+
+		tipo de valor do parâmetro 1: ponteiro
+		valor de origem do parâmetro 1: fixo
+		endereço do ponteiro do parâmetro 1: &fixo
+
+		tipo de valor do parâmetro 1: ponteiro
+		valor de origem do parâmetro 1: PARAM
+	
+		func_ptr f_somaTudo = (func_ptr) cria_func(somaTudo, p, 3);
+		f_somaTudo(&valor2) -> //quando printar, tem que retornar 85
+
+		Terceiro Teste OK!
+
+
+	Quarto Teste:
+
+		- Função que retorna a subtacao dos valores de ponteiros.
+
+		int subtraiPonteiro(int* a, int* b)
+		{
+			return *a - *b;
+		}
+
+		int valor = 2;
+		int fixo = 10; 
+
+		tipo de valor do parâmetro 1: ponteiro
+		valor de origem do parâmetro 1: PARAM
+		
+		tipo de valor do parâmetro 2: ponteiro
+		valor de origem do parâmetro 2: fixo 
+		endereço do ponteiro do parâmetro 2: &fixo
+
+
+		func_ptr f_subtraiPonteiro = (func_ptr)(cria_func)(subtraiPonteiro, params, 2); 
+		f_subtraiPonteiro(&valor)//retorna -8.
+
+		Quarto Teste OK!
+
+
+
+	Testes enunciado:
+
+		- Foram realizados os testes exemplos dos enunciado e todos eles foram OK! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
